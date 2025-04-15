@@ -1,14 +1,9 @@
 <?php
 
+use App\Http\Controllers\DokterController;
+use App\Http\Controllers\PasienController;
 use App\Models\Periksa;
 use Illuminate\Support\Facades\Route;
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// });
 
 /* --------------- Guest bisa login dan register --------------- */
 Route::get('/login', function () {
@@ -20,6 +15,7 @@ Route::get('/register', function () {
 });
 
 /* --------------- Pasien bisa ke halaman dashboard, periksa, dan riwayat --------------- */
+
 Route::get('/pasien', function () {
     return view('pasien.dashboard');
 })->name('pasien.dashboard');
@@ -33,7 +29,13 @@ Route::get('/pasien/riwayat', function () {
 })->name('pasien.riwayat');
 
 
-/* --------------- Dokter bisa ke halaman dashboard, memeriksa pasien, dan obat --------------- */
+
+Route::get('/dokter/obat', [DokterController::class, 'showObat'])->name('dokter.obat');
+Route::post('/dokter/obat', [DokterController::class, 'storeObat'])->name('dokter.obatStore');
+Route::get('/dokter/obat/edit/{id}', [DokterController::class, 'editObat'])->name('dokter.obatEdit');
+Route::put('/dokter/obat/update/{id}', [DokterController::class, 'updateObat'])->name('dokter.obatUpdate');
+Route::delete('/dokter/obat/delete/{id}', [DokterController::class, 'destroyObat'])->name('dokter.obatDelete');
+
 Route::get('/dokter', function () {
     return view('dokter.dashboard');
 })->name('dokter.dashboard');
@@ -43,6 +45,3 @@ Route::get('/dokter/periksa', function () {
     return view('dokter.periksa', compact('periksas'));
 })->name('dokter.periksa');
 
-Route::get('/dokter/obat', function () {
-    return view('dokter.obat');
-})->name('dokter.obat');

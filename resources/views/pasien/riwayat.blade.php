@@ -4,8 +4,6 @@
     <!-- Sidebar Menu -->
     <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <!-- Add icons to the links using the .nav-icon class
-                                       with font-awesome or any other icon font library -->
             <li class="nav-item">
                 <a href="{{ route('pasien.dashboard') }}" class="nav-link">
                     <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -35,21 +33,8 @@
 
 @section('content')
     <!-- Content Header (Page header) -->
-    <div class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1 class="m-0">Pasien</h1>
-                </div><!-- /.col -->
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Dashboard v1</li>
-                    </ol>
-                </div><!-- /.col -->
-            </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
-    </div>
+    <section class="content-header">
+    </section>
     <!-- /.content-header -->
 
     <!-- Main content -->
@@ -85,46 +70,100 @@
                         <table class="table table-hover text-nowrap">
                             <thead>
                                 <tr>
-                                    <th>NO</th>
-                                    <th>ID Periksa</th>
+                                    <th>No</th>
                                     <th>Dokter</th>
                                     <th>Tanggal Periksa</th>
-                                    <th>Catatan</th>
-                                    <th>Obat</th>
                                     <th>Biaya Periksa</th>
+                                    <th>Detail</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>1</td>
-                                    <td>P001</td>
-                                    <td>Andi</td>
-                                    <td>24-03-2025</td>
-                                    <td>Perlu banyak tidur</td>
-                                    <td>Obat tidur</td>
-                                    <td>170000</td>
+                                    <td>dr. Andi</td>
+                                    <td>10-04-2025</td>
+                                    <td><span class="badge badge-success">Rp 150.000</span></td>
+                                    <td>
+                                        <a href="#" data-toggle="modal" data-target="#modalDetail1">
+                                            <i class="fas fa-eye"></i>
+                                        </a>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>2</td>
-                                    <td>P002</td>
-                                    <td>Andi</td>
-                                    <td>26-03-2025</td>
-                                    <td>Perlu banyak olahraga</td>
-                                    <td>Ashwagandha</td>
-                                    <td>200000</td>
+                                    <td>dr. Budi</td>
+                                    <td>11-04-2025</td>
+                                    <td><span class="badge badge-danger">Belum Ada</span></td>
+                                    <td>
+                                        <a href="#" data-toggle="modal" data-target="#modalDetail2">
+                                            <i class="fas fa-eye"></i>
+                                        </a>
+                                    </td>
                                 </tr>
                             </tbody>
+
                         </table>
                     </div>
-                    <!-- /.card-body -->
+
+                    <!-- Modal Detail 1 -->
+                    <div class="modal fade" id="modalDetail1" tabindex="-1" role="dialog" aria-labelledby="modalLabel1" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Detail Pemeriksaan</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Tutup">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p><strong>Dokter:</strong> dr. Andi</p>
+                                    <p><strong>Tanggal Periksa:</strong> 10-04-2025 10:00</p>
+                                    <p><strong>Biaya:</strong> Rp 150.000</p>
+                                    <p><strong>Catatan:</strong> Pasien mengalami flu ringan</p>
+                                    <p><strong>Obat:</strong></p>
+                                    <ul>
+                                        <li>Paracetamol | Tablet 500mg</li>
+                                        <li>Vitamin C | Tablet 100mg</li>
+                                    </ul>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal Detail 2 -->
+                    <div class="modal fade" id="modalDetail2" tabindex="-1" role="dialog" aria-labelledby="modalLabel2" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Detail Pemeriksaan</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Tutup">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p><strong>Dokter:</strong> dr. Budi</p>
+                                    <p><strong>Tanggal Periksa:</strong> 11-04-2025 14:30</p>
+                                    <p><strong>Biaya:</strong> <span class="text-danger">Belum Diinput</span></p>
+                                    <p><strong>Catatan:</strong> <span class="text-danger">Belum Ada Catatan</span></p>
+                                    <p><strong>Obat:</strong></p>
+                                    <ul>
+                                        <li>-</li>
+                                    </ul>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <!-- /.card -->
             </div>
         </div>
-        <!-- /.row -->
-
-        <!-- /.row -->
         </div><!-- /.container-fluid -->
     </section>
+    {{-- {{ \Carbon\Carbon::parse($riwayat->tgl_periksa)->format('d-m-Y') }} --}}
     <!-- /.content -->
 @endsection
