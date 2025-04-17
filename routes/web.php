@@ -29,16 +29,13 @@ Route::get('/pasien/riwayat', function () {
 })->name('pasien.riwayat');
 
 
-
+Route::get('/dokter', [DokterController::class, 'index'])->name('dokter.dashboard');
 Route::get('/dokter/obat', [DokterController::class, 'showObat'])->name('dokter.obat');
 Route::post('/dokter/obat', [DokterController::class, 'storeObat'])->name('dokter.obatStore');
 Route::get('/dokter/obat/edit/{id}', [DokterController::class, 'editObat'])->name('dokter.obatEdit');
 Route::put('/dokter/obat/update/{id}', [DokterController::class, 'updateObat'])->name('dokter.obatUpdate');
 Route::delete('/dokter/obat/delete/{id}', [DokterController::class, 'destroyObat'])->name('dokter.obatDelete');
 
-Route::get('/dokter', function () {
-    return view('dokter.dashboard');
-})->name('dokter.dashboard');
 
 Route::get('/dokter/periksa', function () {
     $periksas = Periksa::all();

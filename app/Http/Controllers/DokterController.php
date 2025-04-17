@@ -3,10 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Models\Obat;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DokterController extends Controller
 {
+    protected $userID = 1;
+
+    public function __construct()
+    {
+        $this->userID;
+    }
+    public function index()
+    {
+        $dokter = User::where('id', $this->userID)->first();
+        $namaDokter = $dokter->nama;
+        return view('dokter.dashboard',compact('namaDokter'));
+    }
     public function showObat()
     {
         $obats = Obat::all();

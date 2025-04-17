@@ -14,13 +14,13 @@
                     </p>
                 </a>
             </li>
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a href="{{ route('dokter.periksa') }}" class="nav-link active">
                     <p>
                         Periksa
                     </p>
                 </a>
-            </li>
+            </li> --}}
             <li class="nav-item">
                 <a href="{{ route('dokter.obat') }}" class="nav-link ">
                     <p>
