@@ -26,6 +26,18 @@
                     </p>
                 </a>
             </li>
+            <li class="nav-item">
+                <form action="{{route('logout')}}" method="POST">
+                    @csrf
+                    <button type="submit" class="nav-link">
+                        <i class="nav-icon fas fa-sign-out-alt"></i>
+                        <p>
+                            Logout
+                        </p>
+                    </button>
+                </form>
+
+            </li>
         </ul>
     </nav>
     <!-- /.sidebar-menu -->
@@ -37,7 +49,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Selamat datang, Pasien[Nama]</h1>
+                    <h1 class="m-0">Selamat datang, Pasien{{$namaPasien}}</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                 </div><!-- /.col -->

@@ -28,6 +28,18 @@
                     </p>
                 </a>
             </li>
+            <li class="nav-item">
+                <form action="{{route('logout')}}" method="POST">
+                    @csrf
+                    <button type="submit" class="nav-link">
+                        <i class="nav-icon fas fa-sign-out-alt"></i>
+                        <p>
+                            Logout
+                        </p>
+                    </button>
+                </form>
+
+            </li>
         </ul>
     </nav>
     <!-- /.sidebar-menu -->

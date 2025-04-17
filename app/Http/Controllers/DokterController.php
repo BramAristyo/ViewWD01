@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Obat;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DokterController extends Controller
 {
@@ -16,7 +17,8 @@ class DokterController extends Controller
     }
     public function index()
     {
-        $dokter = User::where('id', $this->userID)->first();
+        // $dokter = User::where('id', $this->userID)->first();
+        $dokter = User::where('id', Auth::user()->id)->first();
         $namaDokter = $dokter->nama;
         return view('dokter.dashboard',compact('namaDokter'));
     }
